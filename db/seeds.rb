@@ -27,6 +27,14 @@ Tag.destroy_all
 		city: City.all.sample)
  end
 
+80.times do
+  JoinTableGossipTag.create(gossip: Gossip.all.sample, tag: Tag.all.sample)
+end
+
+20.times do
+  Comment.create(user: User.all.sample, commentable: Gossip.all.sample, content: Faker::Quote.matz)
+end
+
  20.times do 		
  	Gossip.create(title: Faker::Quote.singular_siegler, content: Faker::Quote.yoda, user: User.all.sample)
  end
